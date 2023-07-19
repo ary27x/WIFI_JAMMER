@@ -56,6 +56,8 @@ This is achieved using the **clientFilter** function:
 
 https://github.com/ary27x/WIFI_JAMMER/blob/3aaf282f24d69eee91449ad566a4b627701ea4e0/jammer.py#L130
 
+(Let this run for a couple of minutes)
+
 ### 3) Sending De-Authentication Packets:
 
 **Finally the program infinitely loops through the clients list and sends forged de-authentication packet to each through layer 2**
