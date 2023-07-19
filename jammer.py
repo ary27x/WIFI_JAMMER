@@ -134,26 +134,26 @@ def clientFilter(packet):
 	if (packet.haslayer(Dot11)):
 		packet = packet.getlayer(Dot11)
 		if (packet.haslayer(Dot11QoS)):						
-			if (not(packet.haslayer(Dot11CCMP))):
-				if((packet.addr2 not in clients) and (packet.addr1 == MAC)):
+			if (not(packet.haslayer(Dot11CCMP))): 	# Qos Packet
+				if((packet.addr2 not in clients) and (packet.addr1 == MAC)): 
 					
 					counter = counter + 1
 					print(Fore.MAGENTA,"#", counter,'\t',Fore.GREEN + packet.addr2)
 					clients.append(packet.addr2)
-			else:
-				if ((packet.addr2 == MAC) and (packet.addr1 not in clients)):
+			else:	 # Qos with CCMP Packet 
+				if ((packet.addr2 == MAC) and (packet.addr1 not in clients)): 
 
 					counter = counter + 1
 					print(Fore.MAGENTA,"#", counter,'\t',Fore.GREEN + packet.addr1)	
 					clients.append(packet.addr1)			
-		elif (packet.subtype == 9):
+		elif (packet.subtype == 9): 	# Control Block Frame 
 			if ((packet.addr2 == MAC ) and (packet.addr1 not in clients)):
 
 				
 				counter = counter + 1
 				print(Fore.MAGENTA,"#", counter,'\t',Fore.GREEN + packet.addr1)
 				clients.append(packet.addr1)
-		elif (packet.subtype == 4):
+		elif (packet.subtype == 4): # Null Frame
 			if ((packet.addr1 == MAC ) and (packet.addr2 not in clients)):
 
 				counter = counter + 1
@@ -162,7 +162,7 @@ def clientFilter(packet):
 		
 		
 
-print(Fore.BLUE + "[*]Tapping Network To Find Client/s~ (May Take A While)") 
+print(Fore.BLUE + "[*]Tapping Network To Find Client/s~ (May Take A While)") # let this run for a minute
 print(Fore.BLUE + "[!]When Enough Clients Found , Press Ctrl + C To Continue \n") 
 
 print("\n" ,Fore.MAGENTA+ "No.",'\t',Fore.GREEN + "<STATION>")
@@ -175,7 +175,7 @@ if (tClient == 0):
 	print("Exiting....")
 	exit()
 elif (tClient == -2):
-	clients = [BROADCAST]
+	clients = [BROADCAST] # Not Effective
 elif (not(tClient == -1)):
 	clients = [clients[tClient-1]]
 
