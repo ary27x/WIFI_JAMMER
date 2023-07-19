@@ -166,7 +166,7 @@ print(Fore.BLUE + "[*]Tapping Network To Find Client/s~ (May Take A While)") # l
 print(Fore.BLUE + "[!]When Enough Clients Found , Press Ctrl + C To Continue \n") 
 
 print("\n" ,Fore.MAGENTA+ "No.",'\t',Fore.GREEN + "<STATION>")
-sniff(prn = clientFilter , iface = "wlan0")
+sniff(prn = clientFilter , iface = IFACE)
 
 
 
