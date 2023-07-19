@@ -58,7 +58,7 @@ https://github.com/ary27x/WIFI_JAMMER/blob/3aaf282f24d69eee91449ad566a4b627701ea
 
 ### 3) Sending De-Authentication Packets:
 
-**Finally the program infinitely loops through the clients list and sends forged deauth packet to each through layer 2**
+**Finally the program infinitely loops through the clients list and sends forged de-authentication packet to each through layer 2**
 
 ``` shell
 while True:
