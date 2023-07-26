@@ -1,7 +1,7 @@
 # 802.11 Wifi Jammer
 **Infinitely disconnects clients one by one from a 802.11 network**
 
-**This program does send a broadcast de-auth packet using the networks bssid as it is REALLY INEFFECTIVE and rarely works. INSTEAD this program scans the selected network for clients and adds those clients into a list, then infinitely loops through the clients list to send UNICAST DE-AUTH packets to specified clients which in turn in very effective**
+**This program does not send a broadcast de-auth packet using the networks bssid as it is REALLY INEFFECTIVE and rarely works. INSTEAD this program scans the selected network for clients and adds those clients into a list, then infinitely loops through the clients list to send UNICAST DE-AUTH packets to specified clients which in turn in very effective**
 
 
 **! <ins>DO NOT USE ON A NETWORK WITHOUT PRIOR PERMISSION</ins> !**
